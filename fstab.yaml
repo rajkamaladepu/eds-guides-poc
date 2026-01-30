@@ -1,5 +1,5 @@
 mountpoints:
   /:
-    url: https://dita-franklin-worker.adobeaem.workers.dev/your-user-name/rajkamaladepu/eds-guides-poc/main
+    url: https://dita-franklin-worker.adobeaem.workers.dev/rajkamaladepu/eds-guides-poc/main
     type: markup
 
