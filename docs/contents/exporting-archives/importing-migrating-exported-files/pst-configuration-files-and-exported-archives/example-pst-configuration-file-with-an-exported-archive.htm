@@ -1,0 +1,49 @@
+<!--?xml version="1.0" encoding="utf-8" ?--><!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../../../../_rhdefault.css"></head><body id="example-pst-configuration-file-with-an-exported-archive" class="" lang="en_US"><div class="breadcrumbs"><div><div><a href="">Exporting archives</a></div><div><a href="">Importing (migrating) exported files</a></div><div><a href="">PST configuration files and exported archives</a></div><div><a href="contents/exporting-archives/importing-migrating-exported-files/pst-configuration-files-and-exported-archives/example-pst-configuration-file-with-an-exported-archive">Example PST configuration file with an exported archive</a></div></div></div><h1 class="title">Example PST configuration file with an exported archive</h1><div class="tcx-empty-element"></div><div id="example-pst-configuration-file-with-an-exported-archive-1" class=""><h1 class="title">Example PST configuration file with an exported archive</h1><div class=""><div class="p"><div><div><span>This example configuration file shows that the retention category Personal was used when all the items in </span><b class="ph b display-inline">JohnSmith_Export_0001.pst</b><span> were archived.</span></div></div></div><code class="pre-white-space pre codeblock display-block" data-attr-xml:space="preserve">[PST]<br><br>
+<br><br>
+FILENAME = JohnSmith_Export_0001.pst<br><br>
+<br><br>
+DESCRIPTION = John Smith<br><br>
+<br><br>
+CREATED = 22Aug2002 10:01 AM<br><br>
+<br><br>
+ORIGIN = EXPORT_ARCHIVE<br><br>
+<br><br>
+[MAILBOX]<br><br>
+<br><br>
+NAME = John Smith<br><br>
+<br><br>
+MAILBOXDN = /O=ACME/OU=LEGAL/CN=RECIPIENTS/CN=JOHNS<br><br>
+<br><br>
+EXCHANGESERVER = EXCH01<br><br>
+<br><br>
+[USER]<br><br>
+<br><br>
+FIRSTNAME = John<br><br>
+<br><br>
+LASTNAME = Smith<br><br>
+<br><br>
+DEPT = Legal<br><br>
+<br><br>
+TITLE = Audit Manager<br><br>
+<br><br>
+[VAULT]<br><br>
+<br><br>
+NAME = John Smith<br><br>
+<br><br>
+DESCRIPTION = Created by Enable Mailbox Wizard<br><br>
+<br><br>
+VAULTID =&nbsp;<br><br>
+<br><br>
+19A33926632EA274B9822FDBCA82CA09B1110000laguna3.win.kvsinc.com<br><br>
+<br><br>
+VAULTSTORENAME = CCV4VS<br><br>
+<br><br>
+[RETENTION_CATEGORY]<br><br>
+<br><br>
+NAME = Personal<br><br>
+<br><br>
+DESCRIPTION = Personal items<br><br>
+<br><br>
+PERIOD = 60<br><br>
+<br><br>
+PERIODUNITS = MONTHS<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></code><div class="p"><div><div><span>It is possible that the retention category does not match any retention category in your Enterprise Vault site. In this case you must decide on a suitable action, as follows:</span></div></div></div><ul class="ul"><li class="li"><div class="p"><div><div><span>You can use an existing retention category that most closely matches the retention category in the configuration file.</span></div></div></div></li><li class="li"><div class="p"><div><div><span>You can create a new retention category to match the one in the configuration file. However, this new retention category is then available to all users and you may find that its name is likely to confuse existing users.</span></div></div></div></li></ul></div></div></body></html>

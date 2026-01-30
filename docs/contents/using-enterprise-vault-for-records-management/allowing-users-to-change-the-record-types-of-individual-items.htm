@@ -1,0 +1,93 @@
+<!--?xml version="1.0" encoding="utf-8" ?--><!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../../_rhdefault.css"></head><body id="allowing-users-to-change-the-record-types-of-individual-items" class="" lang="en_US"><div class="breadcrumbs"><div><div><a href="">Using Enterprise Vault for records management</a></div><div><a href="contents/using-enterprise-vault-for-records-management/allowing-users-to-change-the-record-types-of-individual-items">Allowing users to change the record types of individual items</a></div></div></div><h1 class="title">Allowing users to change the record types of individual items</h1><div class="tcx-empty-element"></div><div id="allowing-users-to-change-the-record-types-of-individual-items-1" class=""><h1 class="title">Allowing users to change the record types of individual items</h1><div class=""><div class="p"><div><div><span>If you have configured Enterprise Vault to mark all the items of certain users as permanent records by default, you may want to allow these users to reclassify selected items as temporary records or non-records. Similarly, those users for whom the default record type is temporary may need to mark selected items as permanent records or non-records. By using Enterprise Vault Policy Manager (EVPM), you can assign different retention categories to different folders in user mailboxes. Then the users can mark their items as permanent records, temporary records, or non-records by dragging them from one folder and dropping them in another.</span></div></div></div><div class="p"><div><div><span>For extensive information on how to use EVPM, see the </span><i class="ph i display-inline">Utilities</i><span> guide.</span></div></div></div><div class="p"><div><div><span>Sample EVPM initialization files</span></div></div></div><div class="p"><div><div><span>Suppose that you have configured Enterprise Vault to mark all of Mike Smith's items as temporary records by default. The following EVPM initialization file creates a folder called "Permanent Records" in Mike Smith's Inbox. The "Permanent Records" folder has a retention category of "Permanent Retention Category", so he can mark items as permanent records by moving them to the new folder.</span></div></div></div><code class="pre-white-space pre codeblock display-block" data-attr-xml:space="preserve">[Directory]<br><br>
+<br><br>
+DirectoryComputerName = evserver<br><br>
+<br><br>
+SiteName = Site1<br><br>
+<br><br>
+<br><br>
+<br><br>
+[Filter]<br><br>
+<br><br>
+Name = Filter1<br><br>
+<br><br>
+CreateShortcut = True<br><br>
+<br><br>
+DeleteOriginal = True<br><br>
+<br><br>
+UnreadMail = True<br><br>
+<br><br>
+UseInactivityPeriod = True<br><br>
+<br><br>
+InactivityUnits = Days<br><br>
+<br><br>
+InactivityPeriod = 14<br><br>
+<br><br>
+<br><br>
+<br><br>
+[Mailbox]<br><br>
+<br><br>
+LDAPQuery = (cn=Mike Smith)<br><br>
+<br><br>
+<br><br>
+<br><br>
+[Folder]<br><br>
+<br><br>
+Name = \Inbox\Permanent Records<br><br>
+<br><br>
+FilterName = Filter1<br><br>
+<br><br>
+RetentionCategory = Permanent Retention Category<br><br>
+<br><br>
+OverrideArchiveLocks = True<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></code><div class="p"><div><div><span>In the following example, the initialization file creates two folders in the mailbox of a user whose items are marked as permanent records by default. One folder is for temporary records and the other is for non-records.</span></div></div></div><code class="pre-white-space pre codeblock display-block" data-attr-xml:space="preserve">[Directory]<br><br>
+<br><br>
+DirectoryComputerName = evserver<br><br>
+<br><br>
+SiteName = Site1<br><br>
+<br><br>
+<br><br>
+<br><br>
+[Filter]<br><br>
+<br><br>
+Name = Filter1<br><br>
+<br><br>
+CreateShortcut = True<br><br>
+<br><br>
+DeleteOriginal = True<br><br>
+<br><br>
+UnreadMail = True<br><br>
+<br><br>
+UseInactivityPeriod = True<br><br>
+<br><br>
+InactivityUnits = Days<br><br>
+<br><br>
+InactivityPeriod = 14<br><br>
+<br><br>
+<br><br>
+<br><br>
+[Mailbox]<br><br>
+<br><br>
+LDAPQuery= (cn=Anne Tyler)<br><br>
+<br><br>
+<br><br>
+<br><br>
+[Folder]<br><br>
+<br><br>
+Name= \Inbox\Temporary Records<br><br>
+<br><br>
+FilterName= Filter1<br><br>
+<br><br>
+RetentionCategory= Temporary Retention Category<br><br>
+<br><br>
+OverrideArchiveLocks= True<br><br>
+<br><br>
+<br><br>
+<br><br>
+[Folder]<br><br>
+<br><br>
+Name= \Inbox\Personal<br><br>
+<br><br>
+FilterName= Filter1<br><br>
+<br><br>
+RetentionCategory= Non Record Category<br><br>
+<br><br>
+OverrideArchiveLocks= True<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></code><div class="p"><div><div><span>Notes on using EVPM to set up folders for records management</span></div></div></div><ul class="ul"><li class="li"><div class="p"><div><div><span>If the user moves an unarchived item into one of the new folders, Enterprise Vault applies the appropriate retention category to it when the Mailbox Archiving task runs. On the other hand, if the user moves a shortcut (archived item) into one of the folders then, by default, Enterprise Vault applies the new retention category to it when shortcut processing next runs. You can restrict this behavior using the retention category settings on the Archive Settings tab of site properties.</span></div></div></div></li><li class="li"><div class="p"><div><div><span>It is important to set OverrideArchiveLocks to True in the EVPM initialization file to stop other policy settings from overriding the retention category on the folder.</span></div></div></div></li></ul></div></div></body></html>

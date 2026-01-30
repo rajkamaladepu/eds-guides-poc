@@ -1,0 +1,33 @@
+<!--?xml version="1.0" encoding="utf-8" ?--><!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../../../../_rhdefault.css"></head><body id="finding-the-existing-database-configuration-using-get-evdatabasedetail" class="" lang="en_US"><div class="breadcrumbs"><div><div><a href="">Day-to-day administration</a></div><div><a href="">Using SQL Always On availability groups</a></div><div><a href="">Implementing SQL Always On availability groups</a></div><div><a href="contents/day-to-day-administration/using-sql-always-on-availability-groups/implementing-sql-always-on-availability-groups/finding-the-existing-database-a927f937bf">Finding the existing database configuration using Get-EVDatabaseDetail</a></div></div></div><h1 class="title">Finding the existing database configuration using Get-EVDatabaseDetail</h1><div class="tcx-empty-element"></div><div id="finding-the-existing-database-configuration-using-get-evdatabasedetail-1" class=""><h1 class="title">Finding the existing database configuration using Get-EVDatabaseDetail</h1><div class=""><div class="p"><div><div><b class="ph b display-inline">Get-EVDatabaseDetail</b><span> provides details of Enterprise Vault databases, which can be useful when you implement an Always On availability group to support your Enterprise Vault environment.</span></div></div></div><div class="p"><div><div><span>Initially, you can use </span><b class="ph b display-inline">Get-EVDatabaseDetail</b><span> to list details of all your Enterprise Vault databases, including which SQL instance each uses, before you add them to the new availability group.</span></div></div></div><div class="p"><div><div><span>For example, use the following procedure to list details of all Enterprise Vault databases.</span></div></div></div><div class="p"><div><div><span>To list details of all Enterprise Vault databases</span></div></div></div><ul class="ul"><li class="li"><div class="p"><div><div><span>In the Enterprise Vault Management Shell, run the following command:</span></div></div></div></li></ul><div class="p"><div><div><b class="ph b display-inline">Get-EVDatabaseDetail</b></div></div></div><div class="p"><div><div><span>For each database, this produces output like the following:</span></div></div></div><code class="pre-white-space pre codeblock display-block" data-attr-xml:space="preserve">&nbsp; &nbsp; IsCollationOK &nbsp; &nbsp;: True<br><br>
+<br><br>
+&nbsp; &nbsp; IsInAG &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : False<br><br>
+<br><br>
+&nbsp; &nbsp; IsAccessible &nbsp; &nbsp; : True<br><br>
+<br><br>
+&nbsp; &nbsp; DBName &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : EnterpriseVaultAudit<br><br>
+<br><br>
+&nbsp; &nbsp; SQLInstanceName &nbsp;: evsql<br><br>
+<br><br>
+&nbsp; &nbsp; SQLServerVersion : 11.0.3128.0<br><br>
+<br><br>
+&nbsp; &nbsp; Type &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : Audit<br><br>
+<br><br>
+&nbsp; &nbsp; SQLServerName &nbsp; &nbsp;: EVSQL<br><br>
+<br><br>
+&nbsp; &nbsp; IsClustered &nbsp; &nbsp; &nbsp;: False<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></code><div class="p"><div><div><span>This example shows that the Directory database has not yet been added to an availability group, and that it currently uses SQL instance "EVSQL\evsql".</span></div></div></div><div class="p"><div><div><span>When you have added the databases to the availability group, you can use </span><b class="ph b display-inline">Get-EVDatabaseDetail</b><span> again to check that you have achieved the correct result.</span></div></div></div><div class="p"><div><div><span>You can just run </span><b class="ph b display-inline">Get-EVDatabaseDetail</b><span> again, to show details of all databases, or you could use the following example procedure to identify only Enterprise Vault databases that have not been added to your new availability group.</span></div></div></div><div class="p"><div><div><span>To list details of Enterprise Vault databases that have not been added to an availability group</span></div></div></div><ul class="ul"><li class="li"><div class="p"><div><div><span>In the Enterprise Vault Management Shell, run the following command:</span></div></div></div></li></ul><div class="p"><div><div><b class="ph b display-inline">Get-EVDatabaseDetail | where {$_.IsInAG -eq $FALSE}</b></div></div></div><div class="p"><div><div><span>This following example output show that the Enterprise Vault Directory database has not yet been added to an availability group:</span></div></div></div><code class="pre-white-space pre codeblock display-block" data-attr-xml:space="preserve">&nbsp; &nbsp; IsCollationOK &nbsp; &nbsp;: True<br><br>
+<br><br>
+&nbsp; &nbsp; IsInAG &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : False<br><br>
+<br><br>
+&nbsp; &nbsp; IsAccessible &nbsp; &nbsp; : True<br><br>
+<br><br>
+&nbsp; &nbsp; DBName &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : EnterpriseVaultDirectory<br><br>
+<br><br>
+&nbsp; &nbsp; SQLInstanceName &nbsp;: evsql<br><br>
+<br><br>
+&nbsp; &nbsp; SQLServerVersion : 11.0.3128.0<br><br>
+<br><br>
+&nbsp; &nbsp; Type &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : Directory<br><br>
+<br><br>
+&nbsp; &nbsp; SQLServerName &nbsp; &nbsp;: EVSQL<br><br>
+<br><br>
+&nbsp; &nbsp; IsClustered &nbsp; &nbsp; &nbsp;: False<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></code></div></div></body></html>

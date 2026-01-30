@@ -1,0 +1,61 @@
+<!--?xml version="1.0" encoding="utf-8" ?--><!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../../../../../_rhdefault.css"></head><body id="supplying-localized-folder-names-in-the-xml-file" class="" lang="en_US"><div class="breadcrumbs"><div><div><a href="">Day-to-day administration</a></div><div><a href="">Working with retention categories and retention plans</a></div><div><a href="">Setting up retention folders</a></div><div><a href="">Creating an XML file to define the attributes of retention folders</a></div><div><a href="contents/day-to-day-administration/working-with-retention-categories-and-e9b3ae0859/setting-up-retention-folders/creating-an-xml-file-to-define-the-at-fc123c90fc/3ec8979">Supplying localized folder names in the XML file</a></div></div></div><h1 class="title">Supplying localized folder names in the XML file</h1><div class="tcx-empty-element"></div><div id="supplying-localized-folder-names-in-the-xml-file-1" class=""><h1 class="title">Supplying localized folder names in the XML file</h1><div class=""><div class="p"><div><div><span>The following example shows how you can supply the retention folder names in multiple languages. This XML file defines the attributes of two retention folders, which have the English names of </span><b class="ph b display-inline">Money</b><span> and </span><b class="ph b display-inline">Legal</b><span> and the French equivalents of </span><b class="ph b display-inline">Argent</b><span> and </span><b class="ph b display-inline">Légal</b><span>.</span></div></div></div><code class="pre-white-space pre codeblock display-block" data-attr-xml:space="preserve">&lt;RetentionFolderRoot&gt;<br><br>
+<br><br>
+** &lt;Languages&gt;<br><br>
+<br><br>
+&nbsp; &nbsp; &nbsp; &lt;Language&gt;en-GB&lt;/Language&gt;<br><br>
+<br><br>
+&nbsp; &nbsp; &nbsp; &lt;Language&gt;fr-FR&lt;/Language&gt;<br><br>
+<br><br>
+&nbsp; &nbsp;&lt;/Languages&gt;**<br><br>
+<br><br>
+<br><br>
+<br><br>
+&nbsp; &nbsp;&lt;RetentionFolder Name="Money" RetentionCategory="5 years"<br><br>
+<br><br>
+&nbsp; &nbsp; &nbsp; Expiry="Folder" Inheritance="ThisFolderAndAllSubfolders"&gt;<br><br>
+<br><br>
+** &lt;Name Lang="en-GB"&gt;Money&lt;/Name&gt; &nbsp; &nbsp;<br><br>
+<br><br>
+&nbsp; &nbsp; &nbsp; &lt;Name Lang="fr-FR"&gt;Argent&lt;/Name&gt;**<br><br>
+<br><br>
+&nbsp; &nbsp;&lt;/RetentionFolder&gt;<br><br>
+<br><br>
+<br><br>
+<br><br>
+&nbsp; &lt;RetentionFolder Name="Legal" RetentionCategory="2 years"<br><br>
+<br><br>
+&nbsp; &nbsp; Expiry="Folder" Inheritance="ThisFolderAndAllSubfolders"&gt;<br><br>
+<br><br>
+** &lt;Name Lang="fr-FR"&gt;Légal&lt;/Name&gt;**<br><br>
+<br><br>
+&nbsp; &lt;/RetentionFolder&gt;<br><br>
+<br><br>
+&lt;/RetentionFolderRoot&gt;<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></code><div class="p"><div><div><span>The </span><b class="ph b display-inline">&lt; Languages&gt;</b><span> node at the start of the file specifies the languages in which you want to supply the folder names: UK English (</span><b class="ph b display-inline">en-GB</b><span>) and French (</span><b class="ph b display-inline">fr-FR</b><span>). </span><a class="xref" href="3ec8979.md" data-attr-href="3ec8979.md#v127468425" data-attr-format="dita">Table: Supported languages for retention folder names</a><span> lists the languages in which you can supply the folder names.</span></div></div></div><div class="p"><div><div><b class="ph b display-inline">Table: Supported languages for retention folder names</b></div></div></div><div class="table-headcount-1"><div><div>Language</div><div>Code</div><div>Language</div><div>Code</div></div><div><div>Chinese (Simplified, PRC)</div><div>zh-CN</div><div>French</div><div>fr-FR</div></div><div><div>Chinese (Traditional, Taiwan)</div><div>zh-TW</div><div>German</div><div>de-DE</div></div><div><div>Danish</div><div>da-DK</div><div>Hebrew</div><div>he-IL</div></div><div><div>Dutch</div><div>nl-NL</div><div>Hungarian</div><div>hu-HU</div></div><div><div>English</div><div>en-US</div><div>Italian</div><div>it-IT</div></div><div><div>English (Australia)</div><div>en-AU</div><div>Japanese</div><div>ja-JP</div></div><div><div>English (Ireland)</div><div>en-IE</div><div>Korean</div><div>ko-KR</div></div><div><div>English (Malaysia)</div><div>en-MY</div><div>Polish</div><div>pl-PL</div></div><div><div>English (New Zealand)</div><div>en-NZ</div><div>Portuguese</div><div>pt-BR</div></div><div><div>English (Singapore)</div><div>en-SG</div><div>Russian</div><div>ru-RU</div></div><div><div>English (South Africa)</div><div>en-ZA</div><div>Spanish</div><div>es-ES</div></div><div><div>English (United Kingdom)</div><div>en-GB</div><div>Swedish</div><div>sv-SE</div></div></div><div class="p"><div><div><span>The language codes are case-insensitive. For example, you can enter </span><b class="ph b display-inline">en-GB</b><span> as </span><b class="ph b display-inline">EN-GB</b><span> or </span><b class="ph b display-inline">en-gb</b><span>.</span></div></div></div><div class="p"><div><div><span>After you have specified the required languages in the </span><b class="ph b display-inline">&lt; Languages&gt;</b><span> node, you can enter the alternative names of the individual folders within each </span><b class="ph b display-inline">&lt; RetentionFolder&gt;</b><span> node. For example, the XML file above sets the alternative names of the </span><b class="ph b display-inline">Money</b><span> folder as follows:</span></div></div></div><code class="pre-white-space pre codeblock display-block" data-attr-xml:space="preserve">&lt;RetentionFolder Name="Money" RetentionCategory="5 years"<br><br>
+<br><br>
+&nbsp; &nbsp;Expiry="Folder" Inheritance="ThisFolderAndAllSubfolders"&gt;<br><br>
+<br><br>
+** &lt;Name Lang="en-GB"&gt;Money&lt;/Name&gt; &nbsp; &nbsp;<br><br>
+<br><br>
+&nbsp; &nbsp;&lt;Name Lang="fr-FR"&gt;Argent&lt;/Name&gt;**<br><br>
+<br><br>
+&lt;/RetentionFolder&gt;<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></code><div class="p"><div><div><span>Note the following:</span></div></div></div><ul class="ul"><li class="li"><div class="p"><div><div><span>Each folder name can contain up to 255 characters.</span></div></div></div></li><li class="li"><div class="p"><div><div><span>The default folder name is used for all languages for which you do not specify an alternative name. In the following extract from the example XML file above, the default folder name is </span><b class="ph b display-inline">Legal</b><span> , but for French users only the folder name is </span><b class="ph b display-inline">Légal</b><span> :</span></div></div></div><code class="pre-white-space pre codeblock display-block" data-attr-xml:space="preserve">&nbsp;&lt;RetentionFolder **Name="Legal"** RetentionCategory="2 years"<br><br>
+<br><br>
+&nbsp; &nbsp; Expiry="Folder" Inheritance="ThisFolderAndAllSubfolders"&gt;<br><br>
+<br><br>
+&nbsp;** &lt;Name Lang="fr-FR"&gt;Légal&lt;/Name&gt;**<br><br>
+<br><br>
+&nbsp;&lt;/RetentionFolder&gt;<br><br><br><br><br><br><br><br><br><br><br><br></code></li><li class="li"><div class="p"><div><div><span>You can only supply alternative folder names in languages that you have specified in the </span><b class="ph b display-inline">&lt; Languages&gt;</b><span> node. So, in the example XML file above, it would be wrong to add any </span><b class="ph b display-inline">&lt; Name Lang="de-DE"&gt;...nodes because the <b class="ph b display-inline">&lt; Languages&gt;</b> node does not contain a <b class="ph b display-inline">&lt; Language&gt;de-DE</b></b><span> entry.</span></div></div></div></li><li class="li"><div class="p"><div><div><span>In cases where you must define a retention folder twice because it has an inheritance setting of </span><b class="ph b display-inline">AllSubfolders</b><span> , only enter its alternative names within the first </span><b class="ph b display-inline">&lt; RetentionFolder&gt;</b><span> node in the pair of nodes (that is, the node that specifies an inheritance setting of </span><b class="ph b display-inline">ThisFolderOnly</b><span>). For example:</span></div></div></div><code class="pre-white-space pre codeblock display-block" data-attr-xml:space="preserve">&nbsp;&lt;RetentionFolder Name="Money" RetentionCategory="5 years"<br><br>
+<br><br>
+&nbsp; &nbsp; Expiry="Folder" Inheritance="ThisFolderOnly"&gt;<br><br>
+<br><br>
+&nbsp;** &lt;Name Lang="en-GB"&gt;Money&lt;/Name&gt;<br><br>
+<br><br>
+&nbsp; &nbsp; &lt;Name Lang="fr-FR"&gt;Argent&lt;/Name&gt;**<br><br>
+<br><br>
+&nbsp;&lt;/RetentionFolder&gt;<br><br>
+<br><br>
+&nbsp;**&lt;!-- The node below does not specify alternative folder names --&gt;**<br><br>
+<br><br>
+&nbsp;&lt;RetentionFolder Name="Money" RetentionCategory="5 years"<br><br>
+<br><br>
+&nbsp; &nbsp; Expiry="Folder" Inheritance="AllSubfolders"/&gt;<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></code></li></ul></div></div></body></html>

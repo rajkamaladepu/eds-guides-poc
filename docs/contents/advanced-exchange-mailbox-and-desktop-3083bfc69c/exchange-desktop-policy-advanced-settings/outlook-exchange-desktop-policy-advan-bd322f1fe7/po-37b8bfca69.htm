@@ -1,0 +1,43 @@
+<!--?xml version="1.0" encoding="utf-8" ?--><!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../../../../_rhdefault.css"></head><body id="policy-lookup-locations-exchange-outlook-setting" class="" lang="en_US"><div class="breadcrumbs"><div><div><a href="">Advanced Exchange mailbox and desktop policy settings</a></div><div><a href="">Exchange desktop policy advanced settings</a></div><div><a href="">Outlook (Exchange desktop policy advanced settings)</a></div><div><a href="contents/advanced-exchange-mailbox-and-desktop-3083bfc69c/exchange-desktop-policy-advanced-settings/outlook-exchange-desktop-policy-advan-bd322f1fe7/po-37b8bfca69">Policy lookup locations (Exchange Outlook setting)</a></div></div></div><h1 class="title">Policy lookup locations (Exchange Outlook setting)</h1><div class="tcx-empty-element"></div><div id="policy-lookup-locations-exchange-outlook-setting-1" class=""><h1 class="title">Policy lookup locations (Exchange Outlook setting)</h1><div class=""><div class="p"><div><div><span>Description</span></div></div></div><div class="p"><div><div><span>You can set Enterprise Vault Outlook Add-In registry values on a user's computer. If there is an equivalent policy value in the Exchange desktop policy in the Administration Console, the registry value overrides the Exchange desktop policy.</span></div></div></div><div class="p"><div><div><span>Policy lookup locations lets you control the use of registry values on users' computers to override the Exchange desktop policy. You can specify the following types of policy lookup:</span></div></div></div><ul class="ul"><li class="li"><div class="p"><div><div><span>Look only in the Exchange desktop policy.</span></div></div></div></li><li class="li"><div class="p"><div><div><span>Look in the registry first. If there is no registry value, use the policy value in the Exchange desktop policy.</span></div></div></div></li></ul><div class="p"><div><div><span>For information about the Outlook Add-In registry values, see the </span><i class="ph i display-inline">Registry Values</i><span> guide.</span></div></div></div><div class="p"><div><div><span>Supported values</span></div></div></div><ul class="ul"><li class="li"><div class="p"><div><div><span>Policy only. The Outlook Add-In looks only in the Exchange desktop policy.</span></div></div></div></li><li class="li"><div class="p"><div><div><span>Policy, registry HKLM. The Outlook Add-In looks in the following registry key:</span></div></div></div><code class="pre-white-space pre codeblock display-block" data-attr-xml:space="preserve">&nbsp;HKEY_LOCAL_MACHINE<br><br>
+<br><br>
+&nbsp; \SOFTWARE<br><br>
+<br><br>
+&nbsp; &nbsp;\KVS<br><br>
+<br><br>
+&nbsp; &nbsp; \Enterprise Vault<br><br>
+<br><br>
+&nbsp; &nbsp; &nbsp;\Client<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></code></li></ul><div class="p"><div><div><span>If the policy value is not in this registry key, the Outlook Add-In uses the policy value in the Exchange desktop policy. If there is no equivalent policy value in the Exchange desktop policy, the Outlook Add-In uses the registry value default.</span></div></div></div><ul class="ul"><li class="li"><div class="p"><div><div><span>Policy, registry HKLM, registry HKCU (default). The Outlook Add-In looks in the following registry keys, in this order. Only the Vault Cache and Virtual Vault registry values can be located in the second of these registry keys.</span></div></div></div><code class="pre-white-space pre codeblock display-block" data-attr-xml:space="preserve">&nbsp;HKEY_LOCAL_MACHINE<br><br>
+<br><br>
+&nbsp; \SOFTWARE<br><br>
+<br><br>
+&nbsp; &nbsp;\KVS<br><br>
+<br><br>
+&nbsp; &nbsp; \Enterprise Vault<br><br>
+<br><br>
+&nbsp; &nbsp; &nbsp;\Client<br><br>
+<br><br>
+<br><br>
+<br><br>
+&nbsp;HKEY_CURRENT_USER<br><br>
+<br><br>
+&nbsp; \SOFTWARE<br><br>
+<br><br>
+&nbsp; &nbsp;\KVS<br><br>
+<br><br>
+&nbsp; &nbsp; \Enterprise Vault<br><br>
+<br><br>
+&nbsp; &nbsp; &nbsp;\Client<br><br>
+<br><br>
+&nbsp; &nbsp; &nbsp; \_VaultCacheStoreID_<br><br>
+<br><br>
+<br><br>
+<br><br>
+&nbsp;HKEY_CURRENT_USER<br><br>
+<br><br>
+&nbsp; \SOFTWARE<br><br>
+<br><br>
+&nbsp; &nbsp;\KVS<br><br>
+<br><br>
+&nbsp; &nbsp; \Enterprise Vault<br><br>
+<br><br>
+&nbsp; &nbsp; &nbsp;\Client<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></code></li></ul><div class="p"><div><div><span>If the policy value is not in these registry keys, the Outlook Add-In uses the policy value in the Exchange desktop policy. If there is no equivalent policy value in the Exchange desktop policy, the Outlook Add-In uses the registry value default.</span></div></div></div><div class="p"><div><div><span>Legacy name</span></div></div></div><div class="p"><div><div><span>RestrictPolicyLookup</span></div></div></div></div></div></body></html>
